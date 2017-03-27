@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="今天想開一個新專案的時候，一直出現 Could not verify the SSL certificate，如下：
 12345678910111213run  bundle installFetching source index from https://rubygems.org/Retrying fetcher due to error (2/4): Bundler::Fetcher::Ce">
-<meta property="og:updated_time" content="2017-03-27T14:24:11.000Z">
+<meta property="og:updated_time" content="2017-03-27T14:29:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Could not verify the SSL certificate">
 <meta name="twitter:description" content="今天想開一個新專案的時候，一直出現 Could not verify the SSL certificate，如下：
@@ -380,8 +380,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">run  bundle install</div><div class="line">Fetching source index from https://rubygems.org/</div><div class="line">Retrying fetcher due to error (2/4): Bundler::Fetcher::CertificateFailureError Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn&apos;t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div><div class="line">Retrying fetcher due to error (3/4): Bundler::Fetcher::CertificateFailureError Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn&apos;t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div><div class="line">Retrying fetcher due to error (4/4): Bundler::Fetcher::CertificateFailureError Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn&apos;t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div><div class="line">Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most</div><div class="line">likely your system doesn&apos;t have the CA certificates needed for verification. For</div><div class="line">information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect</div><div class="line">without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div></pre></td></tr></table></figure>
 <p>爬了一整天的文都找不到解法，乾脆把所有的 openssl 全部砍掉重裝，結果就正常了，囧</p>
 <ol>
-<li>$ brew uninstall –force openssl</li>
-<li>$ brew install openssl</li>
+<li><code>$ brew uninstall --force openssl</code></li>
+<li><code>$ brew install openssl</code></li>
 </ol>
 
       
@@ -423,22 +423,6 @@
         
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/uncategorized/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -505,7 +489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
