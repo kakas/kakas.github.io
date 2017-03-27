@@ -27,5 +27,5 @@ without using SSL, edit your Gemfile sources and change 'https' to 'http'.
 
 爬了一整天的文都找不到解法，乾脆把所有的 openssl 全部砍掉重裝，結果就正常了，囧
 
-1. $ brew uninstall --force openssl
-2. $ brew install openssl
+1. `$ brew uninstall --force openssl`
+2. `$ brew install openssl`
