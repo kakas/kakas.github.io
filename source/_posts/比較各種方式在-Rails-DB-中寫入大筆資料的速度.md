@@ -2,7 +2,7 @@ title: 比較各種方式在 Rails DB 中寫入大筆資料的速度
 author: kakas
 tags:
   - DB
-  - Rails
+  - rails
   - gem
 categories:
   - Rails
