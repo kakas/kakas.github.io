@@ -588,6 +588,171 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://kakas.github.io/Rails/比較各種方式在-Rails-DB-中寫入大筆資料的速度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kakas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/Rails/比較各種方式在-Rails-DB-中寫入大筆資料的速度/" itemprop="url">
+                  比較各種方式在 Rails DB 中寫入大筆資料的速度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-10-25T23:25:00+08:00">
+                2016-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rails/" itemprop="url" rel="index">
+                    <span itemprop="name">Rails</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Rails/比較各種方式在-Rails-DB-中寫入大筆資料的速度/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="Rails/比較各種方式在-Rails-DB-中寫入大筆資料的速度/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>這幾天在練習寫爬蟲，一開始我的做法是每爬到一筆資料，就把它存到 DB 裡面，但是若爬了一萬筆資料，就表示你要做一萬次 DB transaction，這些時間累積下來也是很可觀的，因此本篇將來探討不同的多筆資料寫入 DB 的方式，會有什麼樣的差異</p>
+<a id="more"></a>
+<p>PS：本文實驗的方式都是從 CSV 讀取資料再存到 DB</p>
+<h2 id="方法-A：一次寫入一筆資料"><a href="#方法-A：一次寫入一筆資料" class="headerlink" title="方法 A：一次寫入一筆資料"></a>方法 A：一次寫入一筆資料</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">perform</span></span></div><div class="line">  Pokemon.delete_all</div><div class="line"></div><div class="line">  CSV.foreach(csv_path, <span class="symbol">headers:</span> <span class="literal">true</span>) <span class="keyword">do</span> <span class="params">|row|</span></div><div class="line">    Pokemon.create(</div><div class="line">      <span class="symbol">name:</span>     row[<span class="string">"Name"</span>],</div><div class="line">      <span class="symbol">location:</span> row[<span class="string">"Location"</span>],</div><div class="line">      <span class="symbol">level:</span>    row[<span class="string">"Level"</span>].to_i</div><div class="line">    )</div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   (0.1ms)  begin transaction</div><div class="line">  SQL (0.3ms)  INSERT INTO &quot;pokemons&quot; (&quot;name&quot;, &quot;location&quot;, &quot;level&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?)  [[&quot;name&quot;, &quot;Meowth&quot;], [&quot;location&quot;, &quot;Cerulean City&quot;], [&quot;level&quot;, 44], [&quot;created_at&quot;, 2016-07-22 08:00:54 UTC], [&quot;updated_at&quot;, 2016-07-22 08:00:54 UTC]]</div><div class="line">   (0.8ms)  commit transaction</div><div class="line"></div><div class="line">   (0.1ms)  begin transaction</div><div class="line">  SQL (0.3ms)  INSERT INTO &quot;pokemons&quot; (&quot;name&quot;, &quot;location&quot;, &quot;level&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?)  [[&quot;name&quot;, &quot;Bulbasaur&quot;], [&quot;location&quot;, &quot;Verdanturf Town&quot;], [&quot;level&quot;, 33], [&quot;created_at&quot;, 2016-07-22 08:00:54 UTC], [&quot;updated_at&quot;, 2016-07-22 08:00:54 UTC]]</div><div class="line">   (0.9ms)  commit transaction</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>可以很清楚的看出，每次寫入一筆資料就要做一次 transaction</p>
+<h2 id="方法-B：用-ActiveRecord-Base-transaction-把資料寫入的程式包起來"><a href="#方法-B：用-ActiveRecord-Base-transaction-把資料寫入的程式包起來" class="headerlink" title="方法 B：用 ActiveRecord::Base.transaction 把資料寫入的程式包起來"></a>方法 B：用 ActiveRecord::Base.transaction 把資料寫入的程式包起來</h2><p>程式同方法 A，但是用 ActiveRecord::Base.transaction 把它包起來</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">perform</span></span></div><div class="line">  Pokemon.delete_all</div><div class="line"></div><div class="line">  ActiveRecord::Base.transaction <span class="keyword">do</span></div><div class="line">    CSV.foreach(csv_path, <span class="symbol">headers:</span> <span class="literal">true</span>) <span class="keyword">do</span> <span class="params">|row|</span></div><div class="line">      Pokemon.create(</div><div class="line">        <span class="symbol">name:</span>     row[<span class="string">"Name"</span>],</div><div class="line">        <span class="symbol">location:</span> row[<span class="string">"Location"</span>],</div><div class="line">        <span class="symbol">level:</span>    row[<span class="string">"Level"</span>].to_i</div><div class="line">      )</div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Rails/比較各種方式在-Rails-DB-中寫入大筆資料的速度/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -633,7 +798,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -644,7 +809,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -655,7 +820,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
