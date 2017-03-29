@@ -1,11 +1,11 @@
 title: zsh shell 下無法使用 vim-rails 的解決辦法
 author: kakas
 tags:
-  - vim
   - rails
+  - vim
 categories:
   - 疑難雜症
-date: 2017-03-29 20:04:00
+date: 2015-12-10 20:04:00
 ---
 ## 更新 2016/01/03
 
