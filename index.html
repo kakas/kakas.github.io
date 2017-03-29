@@ -269,6 +269,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://kakas.github.io/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kakas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/" itemprop="url">
+                  zsh shell 下無法使用 vim-rails 的解決辦法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-03-29T20:04:00+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/疑難雜症/" itemprop="url" rel="index">
+                    <span itemprop="name">疑難雜症</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="更新-2016-01-03"><a href="#更新-2016-01-03" class="headerlink" title="更新 2016/01/03"></a>更新 2016/01/03</h2><p>發現有另外一招也可以用，所以這一招不管用試試看另外一招即可</p>
+<p><code>sudo mv /etc/zshenv /etc/zshrc</code></p>
+<p>這樣的話可以讓 vim 正確的吃到 zsh 的 $PATH</p>
+<h2 id="先說結論"><a href="#先說結論" class="headerlink" title="先說結論"></a>先說結論</h2><p>若你在 zsh shell <code>$ echo $PATH</code>，與在 vim 裡面 <code>:!echo $PATH</code> 的值不一樣，你可以試試看在 .vimrc 裡面指定 shell 為 bash。</p>
+<p><code>set shell=/bin/sh</code></p>
+<h2 id="解決經過"><a href="#解決經過" class="headerlink" title="解決經過"></a>解決經過</h2><p>前幾天看到這篇 <a href="http://www.sitepoint.com/effective-rails-development-vim/" target="_blank" rel="external">Effective Rails Development with Vim</a> 後，就一直想試試看 <a href="https://github.com/tpope/vim-rails" target="_blank" rel="external">tpope/vim-rails</a> 但是昨天試了各種 <code>R</code> command 都沒辦法用，因為我一但在 vim 裡面輸入 <code>R</code> command，譬如 <code>:Rserver</code> 就會跳出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Warning: You&apos;re using Rubygems 2.0.14 with Spring. Upgrade to at least Rubygems 2.1.0 and run `gem pristine --all` for better startup performance.</div><div class="line">Could not find rdoc-4.2.0 in any of the sources</div><div class="line">Run `bundle install` to install missing gems.</div><div class="line"></div><div class="line">shell returned 7</div><div class="line"></div><div class="line">Press ENTER or type command to continue</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://kakas.github.io/English/Animal-Farm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -753,6 +917,171 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://kakas.github.io/Rails/vim-rails-Plugin-使用教學/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kakas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/Rails/vim-rails-Plugin-使用教學/" itemprop="url">
+                  vim-rails Plugin 使用教學
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-10-25T20:02:00+08:00">
+                2016-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rails/" itemprop="url" rel="index">
+                    <span itemprop="name">Rails</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Rails/vim-rails-Plugin-使用教學/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="Rails/vim-rails-Plugin-使用教學/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>這套由 tpope 所開發的 Plugin 我覺得對 Rails 的開發很有幫助，介紹給大家。</p>
+<p>片長約 20 分鐘，建議可以用 1.5 倍速觀看。</p>
+<p><a href="https://www.youtube.com/watch?v=ZKM7ZLQVsbw" target="_blank" rel="external">vim rails 介紹 （推薦 1.5 倍速觀看） - YouTube</a></p>
+<h2 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料"></a>補充資料</h2><p>github：<a href="https://github.com/tpope/vim-rails" target="_blank" rel="external">tpope/vim-rails: rails.vim: Ruby on Rails power tools</a></p>
+<p>說明檔：<a href="https://github.com/tpope/vim-rails/blob/master/doc/rails.txt" target="_blank" rel="external">vim-rails/rails.txt at master · tpope/vim-rails</a></p>
+<p>vim-rails 有整合 Ctag，所以其實只要在 vim 裡面下 <code>:Ctags</code> 就可以了，若想額外設定的話可以在 vimrc 裡面設定 Ctag 譬如：</p>
+<p><code>let g:rails_ctags_arguments = [&#39;--languages=ruby --exclude=.git --exclude=log .&#39;]</code></p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>原來拍個介紹影片比想像中難幾百倍，現在回頭看一下 RailsCasts 拍的品質真的很棒、而且又清楚，不知道怎麼做到的，之後有機會想學一下剪接，一鏡到底真的會一直吃螺絲，一邊操作一邊講更難，寫了逐字稿好像也沒什麼用，稍微背一下流程應該可以更好，不過我懶了，為了拍這個已經花了兩天，還是學會剪接後再來拍下一集。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Rails/vim-rails-Plugin-使用教學/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -798,7 +1127,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -820,7 +1149,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

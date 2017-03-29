@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ruby,rails," />
+  <meta name="keywords" content="rails,vim," />
 
 
 
@@ -87,19 +87,28 @@
 
 
 
-<meta name="description" content="今天想開一個新專案的時候，一直出現 Could not verify the SSL certificate，如下：
-12345678910111213run  bundle installFetching source index from https://rubygems.org/Retrying fetcher due to error (2/4): Bundler::Fetcher::Ce">
+<meta name="description" content="更新 2016/01/03發現有另外一招也可以用，所以這一招不管用試試看另外一招即可
+sudo mv /etc/zshenv /etc/zshrc
+這樣的話可以讓 vim 正確的吃到 zsh 的 $PATH
+先說結論若你在 zsh shell $ echo $PATH，與在 vim 裡面 :!echo $PATH 的值不一樣，你可以試試看在 .vimrc 裡面指定 shell 為 bash。
+se">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Could not verify the SSL certificate">
-<meta property="og:url" content="https://kakas.github.io/疑難雜症/Could-not-verify-the-SSL-certificate/index.html">
+<meta property="og:title" content="zsh shell 下無法使用 vim-rails 的解決辦法">
+<meta property="og:url" content="https://kakas.github.io/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="今天想開一個新專案的時候，一直出現 Could not verify the SSL certificate，如下：
-12345678910111213run  bundle installFetching source index from https://rubygems.org/Retrying fetcher due to error (2/4): Bundler::Fetcher::Ce">
-<meta property="og:updated_time" content="2017-03-27T14:29:43.000Z">
+<meta property="og:description" content="更新 2016/01/03發現有另外一招也可以用，所以這一招不管用試試看另外一招即可
+sudo mv /etc/zshenv /etc/zshrc
+這樣的話可以讓 vim 正確的吃到 zsh 的 $PATH
+先說結論若你在 zsh shell $ echo $PATH，與在 vim 裡面 :!echo $PATH 的值不一樣，你可以試試看在 .vimrc 裡面指定 shell 為 bash。
+se">
+<meta property="og:updated_time" content="2017-03-29T12:09:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Could not verify the SSL certificate">
-<meta name="twitter:description" content="今天想開一個新專案的時候，一直出現 Could not verify the SSL certificate，如下：
-12345678910111213run  bundle installFetching source index from https://rubygems.org/Retrying fetcher due to error (2/4): Bundler::Fetcher::Ce">
+<meta name="twitter:title" content="zsh shell 下無法使用 vim-rails 的解決辦法">
+<meta name="twitter:description" content="更新 2016/01/03發現有另外一招也可以用，所以這一招不管用試試看另外一招即可
+sudo mv /etc/zshenv /etc/zshrc
+這樣的話可以讓 vim 正確的吃到 zsh 的 $PATH
+先說結論若你在 zsh shell $ echo $PATH，與在 vim 裡面 :!echo $PATH 的值不一樣，你可以試試看在 .vimrc 裡面指定 shell 為 bash。
+se">
 
 
 
@@ -127,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://kakas.github.io/疑難雜症/Could-not-verify-the-SSL-certificate/"/>
+  <link rel="canonical" href="https://kakas.github.io/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/"/>
 
 
 
 
 
-  <title> Could not verify the SSL certificate | Hexo </title>
+  <title> zsh shell 下無法使用 vim-rails 的解決辦法 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -271,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://kakas.github.io/疑難雜症/Could-not-verify-the-SSL-certificate/">
+    <link itemprop="mainEntityOfPage" href="https://kakas.github.io/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kakas">
@@ -292,7 +301,7 @@
             
             
               
-                Could not verify the SSL certificate
+                zsh shell 下無法使用 vim-rails 的解決辦法
               
             
           </h1>
@@ -307,8 +316,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2016-10-31T22:10:00+08:00">
-                2016-10-31
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-03-29T20:04:00+08:00">
+                2017-03-29
               </time>
             
 
@@ -348,9 +357,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/疑難雜症/Could-not-verify-the-SSL-certificate/#comments" itemprop="discussionUrl">
+                <a href="/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="疑難雜症/Could-not-verify-the-SSL-certificate/" itemprop="commentCount"></span>
+                        data-disqus-identifier="疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,13 +385,28 @@
       
 
       
-        <p>今天想開一個新專案的時候，一直出現 <code>Could not verify the SSL certificate</code>，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">run  bundle install</div><div class="line">Fetching source index from https://rubygems.org/</div><div class="line">Retrying fetcher due to error (2/4): Bundler::Fetcher::CertificateFailureError Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn&apos;t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div><div class="line">Retrying fetcher due to error (3/4): Bundler::Fetcher::CertificateFailureError Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn&apos;t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div><div class="line">Retrying fetcher due to error (4/4): Bundler::Fetcher::CertificateFailureError Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn&apos;t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div><div class="line">Could not verify the SSL certificate for https://rubygems.org/.</div><div class="line">There is a chance you are experiencing a man-in-the-middle attack, but most</div><div class="line">likely your system doesn&apos;t have the CA certificates needed for verification. For</div><div class="line">information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect</div><div class="line">without using SSL, edit your Gemfile sources and change &apos;https&apos; to &apos;http&apos;.</div></pre></td></tr></table></figure>
-<p>爬了一整天的文都找不到解法，乾脆把所有的 openssl 全部砍掉重裝，結果就正常了，囧</p>
+        <h2 id="更新-2016-01-03"><a href="#更新-2016-01-03" class="headerlink" title="更新 2016/01/03"></a>更新 2016/01/03</h2><p>發現有另外一招也可以用，所以這一招不管用試試看另外一招即可</p>
+<p><code>sudo mv /etc/zshenv /etc/zshrc</code></p>
+<p>這樣的話可以讓 vim 正確的吃到 zsh 的 $PATH</p>
+<h2 id="先說結論"><a href="#先說結論" class="headerlink" title="先說結論"></a>先說結論</h2><p>若你在 zsh shell <code>$ echo $PATH</code>，與在 vim 裡面 <code>:!echo $PATH</code> 的值不一樣，你可以試試看在 .vimrc 裡面指定 shell 為 bash。</p>
+<p><code>set shell=/bin/sh</code></p>
+<h2 id="解決經過"><a href="#解決經過" class="headerlink" title="解決經過"></a>解決經過</h2><p>前幾天看到這篇 <a href="http://www.sitepoint.com/effective-rails-development-vim/" target="_blank" rel="external">Effective Rails Development with Vim</a> 後，就一直想試試看 <a href="https://github.com/tpope/vim-rails" target="_blank" rel="external">tpope/vim-rails</a> 但是昨天試了各種 <code>R</code> command 都沒辦法用，因為我一但在 vim 裡面輸入 <code>R</code> command，譬如 <code>:Rserver</code> 就會跳出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Warning: You&apos;re using Rubygems 2.0.14 with Spring. Upgrade to at least Rubygems 2.1.0 and run `gem pristine --all` for better startup performance.</div><div class="line">Could not find rdoc-4.2.0 in any of the sources</div><div class="line">Run `bundle install` to install missing gems.</div><div class="line"></div><div class="line">shell returned 7</div><div class="line"></div><div class="line">Press ENTER or type command to continue</div></pre></td></tr></table></figure>
+<p>但是我跳出 vim，在 zsh 檢查版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gem --version</div><div class="line">2.5.1</div></pre></td></tr></table></figure>
+<p><strong>幹！很新啊。</strong></p>
+<p>瘋狂爬文一天，試過</p>
 <ol>
-<li><code>$ brew uninstall --force openssl</code></li>
-<li><code>$ brew install openssl</code></li>
+<li>重新安裝 vim</li>
+<li>修改 .zshrc</li>
+<li>修改 .bashrc</li>
+<li>修改 .bash_profile</li>
+<li>gem update –system</li>
+<li>gem pristine –all</li>
 </ol>
+<p><strong>以上方法全部都沒用</strong></p>
+<p>就在最後，在 stack overflow 爬到 vim 執行 script 不吃 .zshrc，檢查一下 vim shell 的設定，發現是 zsh，後來在 .vimrc 加入 <code>set shell=/bin/sh</code> 就解決了。</p>
+<p>遇到這種問題真的好頭痛，也找不太到人問，解決過程中，一直搞不太懂那些 $PATH 到底要怎麼設定，看來必須找個時間再好好充實一下知識了。</p>
 
       
     </div>
@@ -412,9 +436,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ruby/" rel="tag"># ruby</a>
-          
             <a href="/tags/rails/" rel="tag"># rails</a>
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
           
         </div>
       
@@ -427,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Rails/比較各種方式在-Rails-DB-中寫入大筆資料的速度/" rel="next" title="比較各種方式在 Rails DB 中寫入大筆資料的速度">
-                <i class="fa fa-chevron-left"></i> 比較各種方式在 Rails DB 中寫入大筆資料的速度
+              <a href="/English/Animal-Farm/" rel="next" title="Animal Farm">
+                <i class="fa fa-chevron-left"></i> Animal Farm
               </a>
             
           </div>
@@ -436,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/English/Animal-Farm/" rel="prev" title="Animal Farm">
-                Animal Farm <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -493,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -567,6 +596,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新-2016-01-03"><span class="nav-text">更新 2016/01/03</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先說結論"><span class="nav-text">先說結論</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解決經過"><span class="nav-text">解決經過</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -705,9 +750,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://kakas.github.io/疑難雜症/Could-not-verify-the-SSL-certificate/';
-          this.page.identifier = '疑難雜症/Could-not-verify-the-SSL-certificate/';
-          this.page.title = 'Could not verify the SSL certificate';
+          this.page.url = 'https://kakas.github.io/疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/';
+          this.page.identifier = '疑難雜症/zsh-shell-下無法使用-vim-rails-的解決辦法/';
+          this.page.title = 'zsh shell 下無法使用 vim-rails 的解決辦法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-kakas-github-io.disqus.com/embed.js';
